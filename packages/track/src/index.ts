@@ -19,7 +19,7 @@ export class Track {
 
   private initialized = false
 
-  config = {
+  private config = {
     retry: 5,
   }
 
@@ -49,8 +49,8 @@ export class Track {
     const sensorUtils = this.insertScript(this.sensorUtilsURL)
     const results = await Promise.all([sensor, sensorUtils])
     if (results.every((v) => v)) {
-      this.flushTrack()
       this.initialized = true
+      this.flushTrack()
     }
   }
 
