@@ -1,6 +1,6 @@
 {
   "name": "@funny/share",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "changba funny-sdk utils",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

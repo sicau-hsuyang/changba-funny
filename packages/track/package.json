@@ -1,6 +1,6 @@
 {
   "name": "@funny/track",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "changba sensor utils",
   "main": "lib/index.js",
   "scripts": {
