@@ -1,0 +1,15 @@
+node_modules
+
+.tmp
+.idea
+.vscode
+.history
+*.log
+.DS_Store
+*.vsix
+index.draft.vue
+*.draft.md
+package-lock.json
+
+package/share/lib/*
+package/track/lib/*

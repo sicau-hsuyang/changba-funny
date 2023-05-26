@@ -1,0 +1,26 @@
+{
+  "name": "@funny/track",
+  "version": "1.0.0",
+  "description": "changba sensor utils",
+  "main": "lib/index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [
+    "changba activity track utils"
+  ],
+  "author": "ChangbaFE",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@funny/share": "workspace:^"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "@jest/types": "^29.5.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.4"
+  }
+}

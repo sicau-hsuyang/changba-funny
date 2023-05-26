@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks",
+    "bootstrap": "pnpm install && node scripts/bootstrap.mjs",
+    "changelog": "changba-cli changelog",
+    "lint": "changba-cli lint",
+    "release": "node scripts/release.mjs"
+  },
+  "keywords": [],
+  "author": "ChangbaFe",
+  "license": "ISC",
+  "packageManager": "pnpm@8.0.0",
+  "engines": {
+    "pnpm": ">=8.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --allow-empty --concurrent false",
+    "commit-msg": "pnpm exec changba-cli commit-lint $1 && pnpm exec changba-cli checklist $1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,vue,less}": "prettier --write",
+    "*.{ts,tsx,js,vue}": "eslint --fix"
+  },
+  "publishConfig": {
+    "registry": "http://npm.fe.changbaops.com/"
+  },
+  "devDependencies": {
+    "@varlet/eslint-config": "^2.11.1",
+    "changba-cli": "^2.9.7",
+    "eslint": "^7.30.0",
+    "execa": "^5.0.0",
+    "lint-staged": "^10.5.0",
+    "nanospinner": "^1.1.0",
+    "prettier": "^2.7.1",
+    "simple-git-hooks": "^2.8.0",
+    "stylelint": "^13.13.1",
+    "typescript": "^4.4.4"
+  }
+}

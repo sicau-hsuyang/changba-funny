@@ -1,0 +1,16 @@
+{
+  "name": "@funny/share",
+  "version": "1.0.0",
+  "description": "changba funny-sdk utils",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [
+    "changba funny-sdk utils"
+  ],
+  "author": "ChangbaFE",
+  "license": "MIT"
+}
