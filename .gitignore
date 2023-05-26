@@ -13,3 +13,4 @@ package-lock.json
 
 package/share/lib/*
 package/track/lib/*
+package/**/*.js
