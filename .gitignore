@@ -11,6 +11,6 @@ index.draft.vue
 *.draft.md
 package-lock.json
 
-package/share/lib/*
-package/track/lib/*
-package/**/*.js
+packages/share/lib/*
+packages/track/lib/*
+packages/**/*.js
