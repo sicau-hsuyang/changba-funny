@@ -147,14 +147,14 @@ export const track = _track.trackEvent
 /**
  * 页面曝光埋点统计
  */
-export function PV() {
+export function trackPv() {
   _track.trackEvent('show_page_H5')
 }
 /**
  * 元素点击埋点统计
  * @param content 点击的内容
  */
-export function elClick(content: string) {
+export function trackElClick(content: string) {
   _track.trackEvent('click_element_H5_ktv', {
     element_content_ktv: content,
   })
