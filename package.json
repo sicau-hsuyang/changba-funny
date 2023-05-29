@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@varlet/eslint-config": "^2.11.1",
-    "changba-cli": "0.0.2-alpha.1685107696369",
+    "changba-cli": "2.9.7",
     "eslint": "^7.30.0",
     "execa": "^5.0.0",
     "lint-staged": "^10.5.0",
