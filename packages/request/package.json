@@ -2,7 +2,8 @@
   "name": "@funny/request",
   "version": "1.0.0",
   "description": "changba request lib",
-  "main": "index.js",
+  "types": "lib/index.d.ts",
+  "main": "lib/index.js",
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc"
