@@ -157,3 +157,5 @@ export function invokeShareByManual(shareParams: Omit<ChangbaShareParams, 'share
   const imageUrl = encodeURIComponent(shareParams.imageurl)
   window.location.href = `changba://?ac=addshare&title=${title}&content=${content}&targeturl=${targetUrl}&imageurl=${imageUrl}`
 }
+
+export { env }
