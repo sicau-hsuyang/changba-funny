@@ -5,10 +5,13 @@ import { resolve } from 'path'
 const CWD = process.cwd()
 const PKG_SHARE = resolve(CWD, './packages/share')
 const PKG_TRACK = resolve(CWD, './packages/track')
+const PKG_REQUEST = resolve(CWD, './packages/request')
 
 export const buildShare = () => execa('pnpm', ['build'], { cwd: PKG_SHARE })
 
 export const buildTrack = () => execa('pnpm', ['build'], { cwd: PKG_TRACK })
+
+export const buildRequest = () => execa('pnpm', ['build'], { cwd: PKG_REQUEST })
 
 export async function runTask(taskName, task) {
   const s = createSpinner(`Building ${taskName}`).start()
@@ -24,4 +27,5 @@ export async function runTask(taskName, task) {
 export async function runTaskQueue() {
   await runTask('share', buildShare)
   await runTask('track', buildTrack)
+  await runTask('track', buildRequest)
 }

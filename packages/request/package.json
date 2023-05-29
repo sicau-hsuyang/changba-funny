@@ -1,0 +1,25 @@
+{
+  "name": "@funny/request",
+  "version": "1.0.0",
+  "description": "changba request lib",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "ChangbaFE",
+  "license": "MIT",
+  "dependencies": {
+    "@funny/share": "workspace:^",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.7",
+    "@types/node": "^20.2.5",
+    "qs": "^6.11.2"
+  },
+  "peerDependencies": {
+    "axios": "^1.4.0"
+  }
+}
