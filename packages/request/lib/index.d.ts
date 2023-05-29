@@ -1,4 +1,4 @@
-import { ChangbaGetConfig, ChangbaRequestConfig, ChangbaPostConfig, ChangbaResponse } from './types'
+import { ChangbaGetConfig, ChangbaRequestConfig, ChangbaPostConfig, ChangbaResponse } from '../types'
 import { AxiosRequestConfig } from 'axios'
 /**
  * 统一封装的get请求方法

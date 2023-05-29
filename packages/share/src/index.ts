@@ -1,5 +1,5 @@
 import { env } from './env'
-import { ChangbaGlobalParams, ChangbaShareParams } from './types'
+import { ChangbaGlobalParams, ChangbaShareParams } from '../types'
 
 /**
  * 获取查询字符串的值

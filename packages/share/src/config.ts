@@ -1,4 +1,4 @@
-import { ChangbaConfig } from './types'
+import { ChangbaConfig } from '../types'
 /**
  * 不符合要求的火星App端版本号
  */
