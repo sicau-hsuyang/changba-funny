@@ -1,6 +1,12 @@
 import { env } from './env'
-import { ChangbaGlobalParams } from './types'
+import { ChangbaGlobalParams, ChangbaShareParams } from './types'
 
+/**
+ * 获取查询字符串的值
+ * @param name 指定键
+ * @param url 指定从某个字符串上获取查询字符串
+ * @returns
+ */
 export function getQuery(name: string, url?: string): string {
   name = name.replace(/[\\[]/, '\\[').replace(/[\]]/, '\\]')
   if (!url) {
@@ -99,6 +105,10 @@ function compatibility(params: ChangbaGlobalParams) {
   return params
 }
 
+/**
+ * 获取全局参数
+ * @returns
+ */
 export function getGlobalParams(): Promise<ChangbaGlobalParams> {
   return new Promise((resolve) => {
     if (env.browser.isOutChangba) {
@@ -115,4 +125,35 @@ export function getGlobalParams(): Promise<ChangbaGlobalParams> {
       resolve(compatibility({}))
     }
   })
+}
+
+/**
+ * 设置唱吧分享
+ * @param shareParams 分享参数
+ */
+export function share(shareParams: ChangbaShareParams) {
+  try {
+    if (env.browser.isIOS) {
+      window.webkit?.messageHandlers?.issueShareUrlParams?.postMessage?.(JSON.stringify(shareParams))
+    } else {
+      window.changbaCaller?.issueShareUrlParams?.(JSON.stringify(shareParams))
+    }
+    window.shareCallback = () => {
+      typeof shareParams.shareCallback === 'function' && shareParams.shareCallback()
+    }
+  } catch (exp) {
+    console.log(exp)
+  }
+}
+
+/**
+ * 手动调起分享面板
+ * @param shareParams 分享参数
+ */
+export function invokeShareByManual(shareParams: Omit<ChangbaShareParams, 'shareCallback'>) {
+  const title = encodeURIComponent(shareParams.title)
+  const content = encodeURIComponent(shareParams.content)
+  const targetUrl = encodeURIComponent(shareParams.targeturl)
+  const imageUrl = encodeURIComponent(shareParams.imageurl)
+  window.location.href = `changba://?ac=addshare&title=${title}&content=${content}&targeturl=${targetUrl}&imageurl=${imageUrl}`
 }

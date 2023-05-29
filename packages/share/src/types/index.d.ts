@@ -71,3 +71,33 @@ export interface ChangbaConfig {
    */
   iosUMName?: string
 }
+
+/**
+ * 分享参数
+ */
+export interface ChangbaShareParams {
+  /**
+   * 分享标题
+   */
+  title: string
+  /**
+   * 分享主文案
+   */
+  content: string
+  /**
+   * 分享LOGO图片
+   */
+  imageurl: string
+  /**
+   * 缩略图地址
+   */
+  thumburl: string
+  /**
+   * 分享的跳转地址
+   */
+  targeturl: string
+  /**
+   * 分享的回调函数
+   */
+  shareCallback: (...arg: any[]) => any
+}
