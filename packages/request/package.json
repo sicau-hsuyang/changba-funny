@@ -1,6 +1,6 @@
 {
   "name": "@funny/request",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "changba request lib",
   "type": "module",
   "types": "lib/index.d.ts",
