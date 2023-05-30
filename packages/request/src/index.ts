@@ -2,11 +2,20 @@ import { ChangbaGetConfig, ChangbaRequestConfig, ChangbaPostConfig, ChangbaRespo
 import { omit } from 'lodash-es'
 import axios, { AxiosRequestConfig, AxiosProgressEvent, AxiosResponse } from 'axios'
 import qs from 'qs'
-import { getGlobalParams, getQuery } from '@funny/share'
+import { getGlobalParams, getQuery, env } from '@funny/share'
 
 const symbolJson = '__cb__request_json__'
 
 const isDev = process.env.NODE_ENV !== 'production'
+
+function getMockPrefix() {
+  const address = {
+    changba: 'https://yapi.changbaops.com/mock/32/www',
+    mars: 'https://yapi.changbaops.com/mock/39/mars',
+  }
+  const type = env.browser.isMars ? 'mars' : 'changba'
+  return address[type]
+}
 
 class Request {
   // 创建axios实例
@@ -112,8 +121,8 @@ class Request {
 
     const isMock = getQuery('isMock')
     if (isDev && isMock) {
-      // 唱吧yapi 前端组主站mock地址前缀
-      url = 'https://yapi.changbaops.com/mock/32/www' + url
+      // 根据env决定mock的前缀
+      url = getMockPrefix() + url
     }
     return this.instance(url, options)
       .then((response: AxiosResponse<T>) => {
