@@ -41,34 +41,46 @@ export interface ChangbaResponse<T> {
   $response: AxiosResponse<T>
 }
 
-export interface ChangbaGetConfig {
+export interface LoadingConfig {
   /**
-   * 请求地址
+   * loading动画展示的时长
    */
-  url: string
-  /* 是否缓存请求 */
-  cache?: boolean
+  duration: number
   /**
-   * GET请求需要发送的数据
+   * loading加载时展示的 文字
    */
-  data?: {
-    [prop: string]: any
-  }
+  message: string
 }
 
-export interface ChangbaPostConfig {
+interface HttpBaseConfig {
   /**
    * 请求地址
    */
   url: string
-  /* 是否使用application/json的形式发送给后端 */
-  json?: boolean
   /**
-   * POST请求需要发送给后端的数据
+   * HTTP请求需要发送给后端的数据
    */
   data?: {
     [prop: string]: any
   }
+  /**
+   * 是否显示loading加载层， 默认true
+   */
+  showLoading?: boolean
+  /**
+   * 显示loading加载层的时候的配置，传文本则为加载的文字
+   */
+  loadingConfig?: string | LoadingConfig
+}
+
+export interface ChangbaGetConfig extends HttpBaseConfig {
+  /* 是否缓存请求 */
+  cache?: boolean
+}
+
+export interface ChangbaPostConfig extends HttpBaseConfig {
+  /* 是否使用application/json的形式发送给后端 */
+  json?: boolean
   /**
    * 是否是上传
    */

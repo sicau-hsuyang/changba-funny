@@ -35,6 +35,12 @@ importers:
         specifier: ^4.4.4
         version: 4.9.5
 
+  packages/goto:
+    dependencies:
+      '@funny/share':
+        specifier: workspace:^
+        version: link:../share
+
   packages/request:
     dependencies:
       '@funny/share':

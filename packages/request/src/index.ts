@@ -8,6 +8,7 @@ import {
 import * as omit from 'lodash.omit'
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import qs from 'qs'
+import { Loading } from './loading'
 import { getGlobalParams, getQuery, env } from '@funny/share'
 
 const symbolJson = '__cb__request_json__'
@@ -24,6 +25,8 @@ function getMockPrefix() {
 }
 
 class Request {
+  private loading = new Loading()
+
   // 创建axios实例
   private instance = axios.create({
     timeout: 30000,
@@ -52,18 +55,34 @@ class Request {
   constructor() {
     this.instance.interceptors.request.use(
       (config) => {
+        const { showLoading = true, loadingText = '加载中', ...rest } = config.params
+        if (showLoading) {
+          this.loading.show(loadingText, loadingText)
+        }
         if (config.method === 'get') {
-          config.params = config.data
+          config.params = rest
         }
         return config
       },
       (error) => {
+        this.loading.hide()
         // Do something with request error
         if (isDev) {
           // for debug
           console.log(error)
         }
         Promise.reject(error)
+      }
+    )
+
+    this.instance.interceptors.response.use(
+      (response) => {
+        this.loading.hide()
+        return response
+      },
+      (err) => {
+        this.loading.hide()
+        return Promise.reject(err)
       }
     )
   }
