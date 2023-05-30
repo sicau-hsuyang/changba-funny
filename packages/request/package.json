@@ -2,6 +2,7 @@
   "name": "@funny/request",
   "version": "1.0.0",
   "description": "changba request lib",
+  "type": "module",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
   "scripts": {
@@ -13,10 +14,9 @@
   "license": "MIT",
   "dependencies": {
     "@funny/share": "workspace:^",
-    "lodash-es": "^4.17.21"
+    "lodash.omit": "^4.5.0"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.7",
     "@types/node": "^20.2.5",
     "qs": "^6.11.2"
   },
