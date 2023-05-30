@@ -21,6 +21,6 @@
     "qs": "^6.11.2"
   },
   "peerDependencies": {
-    "axios": "^1.4.0"
+    "axios": "^0.21.0"
   }
 }

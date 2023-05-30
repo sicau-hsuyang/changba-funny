@@ -1,6 +1,12 @@
-import { ChangbaGetConfig, ChangbaRequestConfig, ChangbaPostConfig, ChangbaResponse } from '../types'
+import {
+  ChangbaGetConfig,
+  ChangbaRequestConfig,
+  ChangbaPostConfig,
+  ChangbaResponse,
+  AxiosProgressEvent,
+} from '../types'
 import { omit } from 'lodash-es'
-import axios, { AxiosRequestConfig, AxiosProgressEvent, AxiosResponse } from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 import qs from 'qs'
 import { getGlobalParams, getQuery, env } from '@funny/share'
 

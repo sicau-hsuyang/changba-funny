@@ -56,7 +56,7 @@ export const env = {
     }
     return {
       token,
-      userId: businessName === 'mars' && this.browser.isChangba ? tmpUserId : userId,
+      userId: businessName === 'mars' && window.location.host === 'mars.changba.com' ? tmpUserId : userId,
     }
   },
 } as const
