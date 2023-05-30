@@ -1,0 +1,16 @@
+{
+  "name": "@funny/goto",
+  "version": "1.0.0",
+  "description": "changba sdk goto",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "ChangbaFE",
+  "license": "ISC",
+  "dependencies": {
+    "@funny/share": "workspace:^"
+  }
+}
