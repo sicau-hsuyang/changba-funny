@@ -27,6 +27,10 @@ function getGlobalParamsForAndroid(): ChangbaGlobalParams {
   }
 }
 
+export function getUserId(): string {
+  return getQuery('curuserid') || getQuery('uuid') || getQuery('curuser')
+}
+
 function getRandom(min: number, max: number) {
   min = Math.ceil(min)
   max = Math.floor(max)
@@ -72,7 +76,7 @@ function compatibility(params: ChangbaGlobalParams) {
   }
 
   if (!params.userId) {
-    params.userId = getQuery('curuserid')
+    params.userId = getUserId()
   }
 
   if (!params.token) {

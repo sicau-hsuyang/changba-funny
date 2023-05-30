@@ -1,5 +1,5 @@
 import { invalidVersionList } from './config'
-import { getQuery } from './index'
+import { getQuery, getUserId } from './index'
 
 const ua = navigator.userAgent.toLowerCase()
 
@@ -47,7 +47,7 @@ export const env = {
   },
   get userInfo() {
     const token = getQuery('token')
-    const userId = getQuery('curuserid') || getQuery('uuid') || getQuery('curuser')
+    const userId = getUserId()
     const businessName = getQuery('business_name')
     // 如果是火星业务线，并且活动跑在唱吧里，需要对userid追加7E
     let tmpUserId = Number.parseInt(userId, 10)

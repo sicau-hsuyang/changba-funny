@@ -80,12 +80,12 @@ class Request {
       options.data = {}
     }
     const globalParams = await getGlobalParams()
-    // 自动添加 userId, token 参数
+    // 自动添加 userId, token 参数，并且处理好火星活动运行在唱吧+7E的问题
     if (!options.data.userid) {
-      options.data.userid = globalParams.userId
+      options.data.userid = env.userInfo.userId || globalParams.userId
     }
     if (!options.data.token) {
-      options.data.token = globalParams.token
+      options.data.token = env.userInfo.token || globalParams.token
     }
 
     if (options.upload === true) {
