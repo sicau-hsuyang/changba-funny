@@ -28,7 +28,18 @@ function getGlobalParamsForAndroid(): ChangbaGlobalParams {
 }
 
 export function getUserId(): string {
-  return getQuery('curuserid') || getQuery('uuid') || getQuery('curuser')
+  const userId = getQuery('curuserid') || getQuery('uuid') || getQuery('curuser')
+  // 如果是火星业务线，并且活动跑在唱吧里，需要对userid追加7E
+  let tmpUserId = Number.parseInt(userId, 10)
+  if (
+    env.browser.isChangba &&
+    window.location.host === 'mars.changba.com' &&
+    !Number.isNaN(tmpUserId) &&
+    tmpUserId < 700000000
+  ) {
+    tmpUserId += 700000000
+  }
+  return String(tmpUserId)
 }
 
 function getRandom(min: number, max: number) {

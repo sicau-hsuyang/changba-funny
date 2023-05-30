@@ -48,15 +48,9 @@ export const env = {
   get userInfo() {
     const token = getQuery('token')
     const userId = getUserId()
-    const businessName = getQuery('business_name')
-    // 如果是火星业务线，并且活动跑在唱吧里，需要对userid追加7E
-    let tmpUserId = Number.parseInt(userId, 10)
-    if (!Number.isNaN(tmpUserId) && tmpUserId < 700000000) {
-      tmpUserId += 700000000
-    }
     return {
       token,
-      userId: businessName === 'mars' && window.location.host === 'mars.changba.com' ? tmpUserId : userId,
+      userId,
     }
   },
 } as const
