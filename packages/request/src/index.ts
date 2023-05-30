@@ -54,13 +54,26 @@ class Request {
 
   constructor() {
     this.instance.interceptors.request.use(
-      (config) => {
-        const { showLoading = true, loadingText = '加载中', ...rest } = config.params
+      (config: AxiosRequestConfig & ChangbaRequestConfig) => {
+        const { showLoading = true, loadingConfig } = config || {}
         if (showLoading) {
-          this.loading.show(loadingText, loadingText)
+          const mergedConfig = {
+            message: '加载中...',
+            // 设置一个很大的值，让其感觉是不隐藏
+            duration: 1000000000,
+          }
+          // 字符串配置
+          if (typeof loadingConfig === 'string') {
+            mergedConfig.message = loadingConfig
+          }
+          // 对象配置
+          else if (typeof loadingConfig === 'object' && loadingConfig !== null) {
+            Object.assign(mergedConfig, loadingConfig)
+          }
+          this.loading.show(mergedConfig.message, mergedConfig.duration)
         }
         if (config.method === 'get') {
-          config.params = rest
+          config.params = config.data
         }
         return config
       },
@@ -149,6 +162,9 @@ class Request {
       // 根据env决定mock的前缀
       url = getMockPrefix() + url
     }
+    // 补充请求配置
+    options.showLoading = manualOptions.showLoading
+    options.loadingConfig = manualOptions.loadingConfig
     return this.instance(url, options)
       .then((response: AxiosResponse<T>) => {
         let data = response.data as ChangbaResponse<T>

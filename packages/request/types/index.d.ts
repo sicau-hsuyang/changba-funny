@@ -17,6 +17,14 @@ export interface ChangbaRequestConfig {
    * 是否允许缓存，该配置针对GET请求有效
    */
   cache?: boolean
+  /**
+   * 是否显示loading加载层， 默认true
+   */
+  showLoading?: boolean
+  /**
+   * 显示loading加载层的时候的配置，传文本则为加载的文字
+   */
+  loadingConfig?: string | LoadingConfig
 }
 
 /**
