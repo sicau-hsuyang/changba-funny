@@ -143,7 +143,7 @@ const _track = new Track()
 /**
  * 埋点方法
  */
-export const track = _track.trackEvent
+export const track = _track.trackEvent.bind(_track)
 /**
  * 页面曝光埋点统计
  */
