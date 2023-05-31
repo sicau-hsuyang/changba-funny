@@ -15,3 +15,4 @@ packages/share/lib/*
 packages/track/lib/*
 packages/request/lib/*
 packages/**/*.js
+docs/.vitepress/cache/*

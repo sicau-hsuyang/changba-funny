@@ -8,7 +8,8 @@
     "bootstrap": "pnpm install && node scripts/bootstrap.mjs",
     "changelog": "changba-cli changelog",
     "lint": "changba-cli lint --skip-style",
-    "release": "node scripts/release.mjs"
+    "release": "node scripts/release.mjs",
+    "blog": "vitepress dev docs"
   },
   "keywords": [],
   "author": "ChangbaFe",
@@ -38,6 +39,7 @@
     "prettier": "^2.7.1",
     "simple-git-hooks": "^2.8.0",
     "stylelint": "^13.13.1",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "vitepress": "1.0.0-beta.1"
   }
 }
