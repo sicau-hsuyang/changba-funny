@@ -9,7 +9,8 @@
     "changelog": "changba-cli changelog",
     "lint": "changba-cli lint --skip-style",
     "release": "node scripts/release.mjs",
-    "blog": "vitepress dev docs"
+    "blog:dev": "vitepress dev docs",
+    "blog:release": "vitepress build docs"
   },
   "keywords": [],
   "author": "ChangbaFe",

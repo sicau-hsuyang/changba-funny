@@ -16,3 +16,4 @@ packages/track/lib/*
 packages/request/lib/*
 packages/**/*.js
 docs/.vitepress/cache/*
+docs/.vitepress/dist/*
