@@ -18,6 +18,10 @@ export interface ChangbaRequestConfig {
    */
   cache?: boolean
   /**
+   * 是否忽略baseURL，默认false
+   */
+  ignoreBaseURL?: boolean
+  /**
    * 是否显示loading加载层， 默认true
    */
   showLoading?: boolean

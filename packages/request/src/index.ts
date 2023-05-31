@@ -171,11 +171,13 @@ class Request {
     }
 
     const isMock = getQuery('isMock')
+    // 根据配置决定是否忽略baseURL
+    const baseURL = manualOptions.ignoreBaseURL ? '' : this.baseURL
     if (isDev && isMock) {
       // 根据env决定mock的前缀
-      url = getMockPrefix() + this.baseURL + url
+      url = getMockPrefix() + baseURL + url
     } else {
-      url = this.baseURL + url
+      url = baseURL + url
     }
     // 补充请求配置
     options.showLoading = manualOptions.showLoading
