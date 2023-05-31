@@ -27,6 +27,11 @@ function getMockPrefix() {
 class Request {
   private loading = new Loading()
 
+  /**
+   * URL前缀
+   */
+  private baseURL = ''
+
   // 创建axios实例
   private instance = axios.create({
     timeout: 30000,
@@ -100,6 +105,14 @@ class Request {
     )
   }
 
+  /**
+   * 设置请求的URL前缀
+   * @param baseURL
+   */
+  public setBaseURL(baseURL: string): void {
+    this.baseURL = baseURL
+  }
+
   async request<T extends unknown | Array<unknown>>(
     url: string,
     manualOptions: AxiosRequestConfig & ChangbaRequestConfig = {}
@@ -160,7 +173,9 @@ class Request {
     const isMock = getQuery('isMock')
     if (isDev && isMock) {
       // 根据env决定mock的前缀
-      url = getMockPrefix() + url
+      url = getMockPrefix() + this.baseURL + url
+    } else {
+      url = this.baseURL + url
     }
     // 补充请求配置
     options.showLoading = manualOptions.showLoading
@@ -262,5 +277,10 @@ export function put<T extends unknown | Array<unknown>>(
 }
 
 const _request = request.request.bind(request)
+
+/**
+ * 设置请求的URL前缀
+ */
+export const setBaseURL = request.setBaseURL.bind(request)
 
 export { _delete as delete, _request as request }
