@@ -15,15 +15,12 @@ export default defineConfig({
       { text: '其它工具方法', link: '/share' },
     ],
 
-    // sidebar: [
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' },
-    //     ],
-    //   },
-    // ],
+    sidebar: [
+      {
+        text: '文档列表',
+        items: [{ text: 'API List', link: '/api-list' }],
+      },
+    ],
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/sicau-hsuyang/changba-funny' }],
   },
