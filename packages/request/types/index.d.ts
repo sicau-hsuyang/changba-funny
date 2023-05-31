@@ -83,6 +83,10 @@ interface HttpBaseConfig {
    * 显示loading加载层的时候的配置，传文本则为加载的文字
    */
   loadingConfig?: string | LoadingConfig
+  /**
+   * 是否忽略baseURL，默认false
+   */
+  ignoreBaseURL?: boolean
 }
 
 export interface ChangbaGetConfig extends HttpBaseConfig {
